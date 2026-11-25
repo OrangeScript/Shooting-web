@@ -1,131 +1,164 @@
-<!DOCTYPE html>
-<html lang="en-us">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | Shooting</title>
-    <link rel="shortcut icon" href="TemplateData/favicon.ico">
-    <link rel="stylesheet" href="TemplateData/style.css">
-  </head>
-  <body>
-    <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
-      <div id="unity-loading-bar">
-        <div id="unity-logo"></div>
-        <div id="unity-progress-bar-empty">
-          <div id="unity-progress-bar-full"></div>
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#121613">
+  <meta name="description" content="Shooting 是一款 Unity 3D 波次生存射击游戏。在网页中体验单人试玩，了解战斗、道具、敌人与局域网合作的开发过程。">
+  <title>SHOOTING · 游戏试玩与开发展示</title>
+  <link rel="icon" href="./TemplateData/favicon.ico">
+  <link rel="stylesheet" href="./site.css">
+  <script src="./site.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#content">跳转到正文</a>
+  <header class="site-header" id="top">
+    <div class="shell header-layout">
+      <a class="wordmark" href="#top" aria-label="Shooting 首页"><span class="brand-mark" aria-hidden="true"></span>SHOOTING</a>
+      <nav aria-label="主导航">
+        <a href="#play">试玩</a>
+        <a href="#design">玩法设计</a>
+        <a href="#development">开发工作</a>
+      </nav>
+      <a class="header-play" href="#play" data-launch>开始试玩</a>
+    </div>
+  </header>
+
+  <main id="content">
+    <section class="hero" aria-labelledby="project-title">
+      <img class="hero-image" src="./media/hero.webp" alt="" width="1015" height="807" fetchpriority="high">
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="accent-line" aria-hidden="true"></span>Unity 3D 波次生存游戏</p>
+          <h1 id="project-title">SHOOTING</h1>
+          <p class="hero-title">公路上的生存战</p>
+          <p class="hero-description">左右走位，避开弹幕，用自动开火击破奖励门。在二十波战斗中收集道具，搭出能应付首领的火力组合。</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#play" data-launch><span class="play-mark" aria-hidden="true"></span>开始试玩</a>
+            <a class="button soft" href="#development">查看开发工作</a>
+          </div>
+        </div>
+        <dl class="game-facts" aria-label="游戏概览">
+          <div><dt>20</dt><dd>战斗波次</dd></div>
+          <div><dt>3</dt><dd>首领战</dd></div>
+          <div><dt>2–4</dt><dd>桌面版局域网合作</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <section class="section shell play-section" id="play" aria-labelledby="play-title">
+      <div class="section-top">
+        <div>
+          <p class="eyebrow">WEBGL DEMO</p>
+          <h2 id="play-title">浏览器试玩</h2>
+        </div>
+        <p class="controls-hint"><kbd>A</kbd> <kbd>D</kbd> 横向移动 · 自动射击</p>
+      </div>
+
+      <div class="player">
+        <div class="player-bar">
+          <span class="player-label"><span class="player-dot" aria-hidden="true"></span>单人试玩</span>
+          <div class="player-actions">
+            <button class="player-button" type="button" id="fullscreen" disabled>全屏</button>
+            <button class="player-button" type="button" id="stop" disabled>结束试玩</button>
+            <a class="player-button" href="./play.html" target="_blank" rel="noopener">独立窗口</a>
+          </div>
+        </div>
+        <div class="player-stage" id="player-stage">
+          <div class="player-cover" id="player-cover">
+            <img src="./media/highway.webp" alt="" width="1462" height="808" loading="lazy">
+            <div class="player-cover-action">
+              <a class="button primary" href="./play.html" data-launch><span class="play-mark" aria-hidden="true"></span>载入游戏</a>
+              <p id="player-status" aria-live="polite">加载完成后，在游戏菜单选择「单人游戏」。</p>
+            </div>
+          </div>
         </div>
       </div>
-      <div id="unity-warning"> </div>
-      <div id="unity-footer">
-        <div id="unity-webgl-logo"></div>
-        <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">Shooting</div>
+      <p class="platform-note">局域网合作和结算竞技场由桌面版提供。<a href="#lan">了解联机方式</a></p>
+    </section>
+
+    <section class="section design-section" id="design" aria-labelledby="design-title">
+      <div class="shell design-layout">
+        <figure class="feature-shot">
+          <img src="./media/rewards.webp" width="1462" height="808" alt="自动火力击破开场奖励门，蓝色飞鸟沿公路靠近" loading="lazy">
+          <figcaption>游戏实拍 · 开场奖励门被击破</figcaption>
+        </figure>
+        <div class="design-copy">
+          <h2 id="design-title">用走位争取成长</h2>
+          <p>横移会同时改变射击路线和拾取位置。躲开威胁、击破奖励门和接住经验晶体，都需要在同一条路上做决定。</p>
+          <dl class="loop-list">
+            <div><dt>观察预警</dt><dd>直行敌人、远程飞弹、自爆和激光各有攻击时机。</dd></div>
+            <div><dt>打出奖励</dt><dd>门上会显示道具，每排每位玩家可取一件。</dd></div>
+            <div><dt>形成构筑</dt><dd>经验升级三选一，与追踪、穿透、闪电和召唤等道具效果结合。</dd></div>
+          </dl>
+        </div>
       </div>
+    </section>
+
+    <section class="section shell development-section" id="development" aria-labelledby="development-title">
+      <div class="section-top work-intro">
+        <div>
+          <h2 id="development-title">开发工作</h2>
+        </div>
+        <p>课程项目的开发记录涵盖系统实现、专题分析和可复现的回归验证。</p>
+      </div>
+      <div class="work-grid">
+        <article class="work-entry">
+          <h3>操控与战斗</h3>
+          <p>Unity Input System 处理横移。自动射击使用弹体对象池，命中时统一结算伤害、击退和道具效果。</p>
+        </article>
+        <article class="work-entry">
+          <h3>波次与敌人</h3>
+          <p>五类常规敌人按波次和权重投放。第 10、15、20 波安排首领，攻击前摇、预警与晚期增援推动换位。</p>
+        </article>
+        <article class="work-entry">
+          <h3>道具与成长</h3>
+          <p>ScriptableObject 配置品质、权重和叠层上限。奖励门、经验掉落和三选一升级共同驱动局内构筑。</p>
+        </article>
+        <article class="work-entry">
+          <h3>状态效果</h3>
+          <p>减速弹和主动脉冲各自计时，闪电按有效目标弹射。专题工作还复盘了元素组合方案，验证中毒表现挂载与回收。</p>
+        </article>
+        <article class="work-entry">
+          <h3>场景与视听反馈</h3>
+          <p>使用 URP 搭建滚动公路，Cinemachine 负责跟拍与传奇拾取演出，UI Toolkit 提供状态提示。射击、受击和拾取使用独立的事件音效。</p>
+        </article>
+        <article class="work-entry">
+          <h3>合作与竞技场</h3>
+          <p>桌面端由房主结算敌人、命中与掉落，客户端预测横移。进入竞技场时，通过快照恢复本局道具和成长。</p>
+        </article>
+        <article class="work-entry">
+          <h3>平衡与验证</h3>
+          <p>根据自动跑局的数据调整中后期压力、奖励上限和首领出手节奏。独立回归覆盖攻击与动画事件时序。</p>
+        </article>
+        <article class="work-entry">
+          <h3>构建与展示</h3>
+          <p>项目使用 Unity 2022 LTS 与 C# 开发，提供桌面端和 WebGL 构建。本页把实际游戏和开发记录放在同一个入口。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section lan-section" id="lan" aria-labelledby="lan-title">
+      <div class="shell lan-layout">
+        <div>
+          <h2 id="lan-title">和队友一起玩</h2>
+        </div>
+        <div>
+          <p>同一局域网内，在桌面版创建房间，其他玩家填写房主的局域网 IPv4 地址。默认房间端口为 UDP 7778，队友到齐后由房主开启合作。</p>
+          <details>
+            <summary>网页与桌面联机有什么区别？</summary>
+            <p>浏览器可以主动连接 WebSocket 房主。当前桌面房间使用 Unity Transport 的 UDP 直连；要让网页玩家加入，需要支持 WebSocket 的原生房主和匹配的网页客户端。本站 WebGL 包提供单人试玩。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-layout">
+      <a class="wordmark" href="#top"><span class="brand-mark" aria-hidden="true"></span>SHOOTING</a>
+      <a href="#play">回到试玩</a>
     </div>
-    <script>
-
-      var container = document.querySelector("#unity-container");
-      var canvas = document.querySelector("#unity-canvas");
-      var loadingBar = document.querySelector("#unity-loading-bar");
-      var progressBarFull = document.querySelector("#unity-progress-bar-full");
-      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
-      var warningBanner = document.querySelector("#unity-warning");
-
-      // Shows a temporary message banner/ribbon for a few seconds, or
-      // a permanent error message on top of the canvas if type=='error'.
-      // If type=='warning', a yellow highlight color is used.
-      // Modify or remove this function to customize the visually presented
-      // way that non-critical warnings and error messages are presented to the
-      // user.
-      function unityShowBanner(msg, type) {
-        function updateBannerVisibility() {
-          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
-        }
-        var div = document.createElement('div');
-        div.innerHTML = msg;
-        warningBanner.appendChild(div);
-        if (type == 'error') div.style = 'background: red; padding: 10px;';
-        else {
-          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
-          setTimeout(function() {
-            warningBanner.removeChild(div);
-            updateBannerVisibility();
-          }, 5000);
-        }
-        updateBannerVisibility();
-      }
-
-      var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/Shooting_Web.loader.js";
-      var config = {
-        dataUrl: buildUrl + "/Shooting_Web.data.unityweb",
-        frameworkUrl: buildUrl + "/Shooting_Web.framework.js.unityweb",
-        codeUrl: buildUrl + "/Shooting_Web.wasm.unityweb",
-        streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "Shooting",
-        productVersion: "0.1.0",
-        showBanner: unityShowBanner,
-      };
-
-      // By default, Unity keeps WebGL canvas render target size matched with
-      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
-      // Set this to false if you want to decouple this synchronization from
-      // happening inside the engine, and you would instead like to size up
-      // the canvas DOM size and WebGL render target sizes yourself.
-      // config.matchWebGLToCanvasSize = false;
-
-      // If you would like all file writes inside Unity Application.persistentDataPath
-      // directory to automatically persist so that the contents are remembered when
-      // the user revisits the site the next time, uncomment the following line:
-      // config.autoSyncPersistentDataPath = true;
-      // This autosyncing is currently not the default behavior to avoid regressing
-      // existing user projects that might rely on the earlier manual
-      // JS_FileSystem_Sync() behavior, but in future Unity version, this will be
-      // expected to change.
-
-      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-        // Mobile device style: fill the whole browser client area with the game canvas:
-
-        var meta = document.createElement('meta');
-        meta.name = 'viewport';
-        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
-        document.getElementsByTagName('head')[0].appendChild(meta);
-        container.className = "unity-mobile";
-        canvas.className = "unity-mobile";
-
-        // To lower canvas resolution on mobile devices to gain some
-        // performance, uncomment the following line:
-        // config.devicePixelRatio = 1;
-
-
-      } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
-      }
-
-      loadingBar.style.display = "block";
-
-      var script = document.createElement("script");
-      script.src = loaderUrl;
-      script.onload = () => {
-        createUnityInstance(canvas, config, (progress) => {
-          progressBarFull.style.width = 100 * progress + "%";
-              }).then((unityInstance) => {
-                loadingBar.style.display = "none";
-                fullscreenButton.onclick = () => {
-                  unityInstance.SetFullscreen(1);
-                };
-              }).catch((message) => {
-                alert(message);
-              });
-            };
-
-      document.body.appendChild(script);
-
-    </script>
-  </body>
+  </footer>
+</body>
 </html>

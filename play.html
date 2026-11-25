@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101612">
+  <title>SHOOTING · 单人试玩</title>
+  <link rel="icon" href="./TemplateData/favicon.ico">
+  <style>
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #101612; }
+    body { color: #edf4ea; font: 1rem/1.6 system-ui, "Microsoft YaHei UI", sans-serif; }
+    [hidden] { display: none !important; }
+    #unity-canvas { display: block; width: 100%; height: 100%; background: #101612; outline: none; touch-action: none; }
+    #load-state { position:absolute; inset:0; display:grid; place-content:center; justify-items:center;
+      gap: .75rem; padding: 1.5rem; text-align:center; background:radial-gradient(ellipse,#26362a,#101612 72%); }
+    #load-title { display:block; color:#d6f884; font-size:clamp(1.5rem,5vw,2.9rem); letter-spacing:.1em; }
+    #load-message { max-width:32rem; margin:0; color:#c0cec0; overflow-wrap:anywhere; }
+    #load-progress { width:min(14rem,74vw); height:.4rem; accent-color:#cdf77a; }
+    #standalone-actions { position: absolute; top: .6rem; right: .65rem; display:flex; gap: .4rem; }
+    button, a { border:1px solid #566852; border-radius:.28rem; padding:.4rem .7rem; background:#101612ed;
+      color:#e5f0dc; font:inherit; cursor:pointer; text-decoration:none; }
+    :where(a,button):focus-visible { outline:2px solid #d6f884; outline-offset:3px; }
+  </style>
+  <script src="./play.js" defer></script>
+</head>
+<body>
+  <canvas id="unity-canvas" width="960" height="600" tabindex="0" aria-label="Shooting 游戏画面"></canvas>
+  <div id="load-state" role="status" aria-live="polite">
+    <strong id="load-title">SHOOTING</strong>
+    <p id="load-message">正在加载游戏资源</p>
+    <progress id="load-progress" aria-label="游戏加载进度" max="100" value="0"></progress>
+    <button id="retry" type="button" hidden>重新加载</button>
+  </div>
+  <div id="standalone-actions" hidden>
+    <a href="./index.html#play">返回展示页</a>
+    <button id="game-fullscreen" type="button" hidden>全屏</button>
+  </div>
+  <noscript>启用 JavaScript 后即可运行 WebGL 试玩。</noscript>
+</body>
+</html>
